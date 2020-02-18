@@ -1,0 +1,5 @@
+golang-github-cubiest-jibberjabber (1.0.1+git20200208.ee8425c-1) UNRELEASED; urgency=medium
+
+  * Initial release (Closes: 999999)
+
+ -- Ola Bini <debian@olabini.se>  Tue, 18 Feb 2020 19:38:43 +0100
