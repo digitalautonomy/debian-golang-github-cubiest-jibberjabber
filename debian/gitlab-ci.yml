@@ -3,9 +3,9 @@ stages:
 
 build:
   stage: build
-  image: digitalautonomy/debianpackaging:0.1
+  image: digitalautonomy/debianpackaging:0.2
   before_script:
-    - 'apt-get update && apt-get install -y --no-install-recommends golang-github-onsi-ginkgo-dev golang-gomega-dev golang-x-text-dev'
+    - 'apt-get update && apt-get install -y --no-install-recommends golang-golang-x-text-dev'
     - "eval $(ssh-agent -s)"
     - 'ssh-add <(echo "$DEBIAN_PACKAGING_PRIVATE_KEY")'
     - mkdir -p ~/.ssh; chmod 700 ~/.ssh
