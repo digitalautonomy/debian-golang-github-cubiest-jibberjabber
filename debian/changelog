@@ -1,4 +1,4 @@
-golang-github-cubiest-jibberjabber (2.1+git20220629.2725260-1) UNRELEASED; urgency=medium
+golang-github-cubiest-jibberjabber (2.1+git20220629.2725260-1) unstable; urgency=medium
 
   [ CAD Debian Packager ]
   * New upstream release (2725260)
