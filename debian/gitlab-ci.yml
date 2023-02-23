@@ -1,9 +1,12 @@
 stages:
   - build
 
+image:
+  name: digitalautonomy/debianpackaging:0.2
+  entrypoint: ["/bin/sh", "-c"]
+
 build:
   stage: build
-  image: digitalautonomy/debianpackaging:0.2
   before_script:
     - 'apt-get update && apt-get install -y --no-install-recommends golang-golang-x-text-dev'
     - "eval $(ssh-agent -s)"
