@@ -2,7 +2,7 @@ stages:
   - build
 
 image:
-  name: digitalautonomy/debianpackaging:0.5
+  name: digitalautonomy/debianpackaging:0.6
 
 build:
   stage: build
