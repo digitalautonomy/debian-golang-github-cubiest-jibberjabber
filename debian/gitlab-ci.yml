@@ -2,8 +2,7 @@ stages:
   - build
 
 image:
-  name: digitalautonomy/debianpackaging:0.2
-  entrypoint: [""]
+  name: digitalautonomy/debianpackaging:0.3
 
 build:
   stage: build
