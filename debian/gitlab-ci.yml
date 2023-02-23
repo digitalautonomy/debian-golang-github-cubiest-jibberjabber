@@ -3,7 +3,7 @@ stages:
 
 image:
   name: digitalautonomy/debianpackaging:0.2
-  entrypoint: ["/bin/sh", "-c"]
+  entrypoint: ["/bin/bash", "-c"]
 
 build:
   stage: build
