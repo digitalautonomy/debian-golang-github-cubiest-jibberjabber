@@ -8,7 +8,7 @@ Build-Depends: debhelper (>= 11),
                golang-any,
                golang-github-onsi-ginkgo-dev,
                golang-gomega-dev,
-               golang-x-text-dev
+               golang-golang-x-text-dev
 Standards-Version: 4.2.1
 Homepage: https://github.com/cubiest/jibberjabber
 Vcs-Browser: https://salsa.debian.org/go-team/packages/golang-github-cubiest-jibberjabber
@@ -21,7 +21,7 @@ Architecture: all
 Depends: ${misc:Depends},
          golang-github-onsi-ginkgo-dev,
          golang-gomega-dev,
-         golang-x-text-dev
+         golang-golang-x-text-dev
 Description: Cross Platform locale detection for Golang
  Jibber Jabber is a GoLang Library that can be used to detect an operating
  system's current language.  OS Support UNIX OS like Linux and macOS via
