@@ -7,7 +7,6 @@ image:
 build:
   stage: build
   before_script:
-    - 'apt-get install -y --no-install-recommends golang-golang-x-text-dev'
     - "eval $(ssh-agent -s)"
     - 'ssh-add <(echo "$DEBIAN_PACKAGING_PRIVATE_KEY")'
     - mkdir -p ~/.ssh; chmod 700 ~/.ssh
