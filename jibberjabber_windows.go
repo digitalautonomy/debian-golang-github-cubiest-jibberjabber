@@ -28,18 +28,13 @@ func getWindowsLocaleFrom(sysCall string) (string, error) {
 
 	r, _, dllError := proc.Call(uintptr(unsafe.Pointer(&buffer[0])), uintptr(LOCALE_NAME_MAX_LENGTH))
 	if r == 0 {
-		return "", errors.New(COULD_NOT_DETECT_PACKAGE_ERROR_MESSAGE + ":\n" + dllError.Error())
+		return "", errors.New(ErrLangDetectFail.Error() + ": " + dllError.Error())
 	}
 
 	return windows.UTF16ToString(buffer), nil
 }
 
 func getWindowsLocale() (string, error) {
-	dll, err := windows.LoadDLL("kernel32")
-	if err != nil {
-		return "", errors.New("could not find kernel32 dll: " + err.Error())
-	}
-
 	locale, err := getWindowsLocaleFrom("GetUserDefaultLocaleName")
 	if err != nil {
 		locale, err = getWindowsLocaleFrom("GetSystemDefaultLocaleName")
@@ -70,6 +65,7 @@ func DetectLanguageTag() (language.Tag, error) {
 	if err != nil {
 		return language.Und, err
 	}
+	locale, _ = splitLocale(locale)
 	return language.Parse(locale)
 }
 
