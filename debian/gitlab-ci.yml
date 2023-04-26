@@ -7,6 +7,7 @@ image:
 build:
   stage: build
   before_script:
+    - DEBIAN_FRONTEND=noninteractive apt -y update
     - DEBIAN_FRONTEND=noninteractive apt -y install --no-install-recommends golang-golang-x-text-dev golang-golang-x-sys-dev golang-github-onsi-ginkgo-dev golang-gomega-dev
     - "eval $(ssh-agent -s)"
     - 'ssh-add <(echo "$DEBIAN_PACKAGING_PRIVATE_KEY")'
@@ -14,6 +15,8 @@ build:
     - 'echo -e "|1|sIXiBfTWErM/nOgnpL5P9rdelKk=|pE4928lM5+rGDCYjNn+Yo5jFipg= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBIx8qF3puSAM1UAxc3ODJTNGrgwf8mET664pPfP/ZQgiMxTIKG8Ar8h1xxP52AyQoqTLpCWOPaBkUya2Q0+SZTg=" >> ~/.ssh/known_hosts'
     - 'echo -e "|1|2sb5M4s4CRFlFYvv90vdWG9vyyg=|AGJyZ+2uBC7mOWJ2xHsW0En4tcU= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBIx8qF3puSAM1UAxc3ODJTNGrgwf8mET664pPfP/ZQgiMxTIKG8Ar8h1xxP52AyQoqTLpCWOPaBkUya2Q0+SZTg=" >> ~/.ssh/known_hosts'
     - chmod 644 ~/.ssh/known_hosts
+  only:
+    - main
   script:
     - gbp buildpackage --git-debian-branch=main --git-ignore-branch --git-no-pristine-tar --no-sign
     - mkdir debian_build
